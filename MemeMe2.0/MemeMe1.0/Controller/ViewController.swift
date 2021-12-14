@@ -32,10 +32,10 @@ class ViewController: UIViewController,
     var memedImage: UIImage!
     
     let memeTextAttributes: [NSAttributedString.Key: Any] = [
-        NSAttributedString.Key.strokeColor: UIColor.black,
-        NSAttributedString.Key.foregroundColor: UIColor.white,
-        NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSAttributedString.Key.strokeWidth: -5.0
+        .strokeColor: UIColor.black,
+        .foregroundColor: UIColor.white,
+        .font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+        .strokeWidth: -5.0
     ]
     
     var isCameraAvailable: Bool {
@@ -163,8 +163,8 @@ class ViewController: UIViewController,
     }
     
     @objc func keyboardWillShow(_ notification: Notification) {
-        if bottomTextField.isEditing {
-            view.frame.origin.y = -getKeyboardHeight(notification)
+        if bottomTextField.isFirstResponder {
+            view.frame.origin.y -= getKeyboardHeight(notification)
         }
     }
     
